@@ -1,0 +1,29 @@
+name: slm-sustainability
+channels:
+  - pytorch
+  - conda-forge
+dependencies:
+  - python=3.11
+  - pip
+
+  # Core
+  - numpy
+  - pandas
+  - matplotlib
+  - tqdm
+
+  # PyTorch (CPU)
+  - pytorch
+  - torchvision
+  - torchaudio
+  - cpuonly
+
+  # Notebooks (optional but useful)
+  - ipykernel
+  - jupyterlab
+
+  # For downloading tiny shakespeare in prepare.py (if you use urllib you can remove requests)
+  - requests
+
+  - pip:
+      - codecarbon
