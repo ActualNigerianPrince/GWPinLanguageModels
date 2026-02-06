@@ -21,7 +21,7 @@ from model import GPTConfig, GPT
 
 # I/O
 OUT_DIR = "out"
-DATA_DIR = os.path.join("data")  # e.g., data/{train.bin,val.bin,meta.pkl}
+DATA_DIR = os.path.join("data")
 EVAL_INTERVAL = 200
 EVAL_ITERS = 50
 LOG_INTERVAL = 50
@@ -36,7 +36,7 @@ BIAS = True
 
 # Training (main parameters you can also experiment with)
 SEED = 1337
-DEVICE = "cpu" #If you can try also seeing consumption when using gpu
+DEVICE = "cpu" # If you can try also seeing consumption when using gpu (change this to 'cuda' if torch.cuda.is_available() else 'cpu')
 DTYPE = "float32" 
 BATCH_SIZE = 32
 BLOCK_SIZE = 256

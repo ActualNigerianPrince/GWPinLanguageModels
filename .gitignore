@@ -1,0 +1,6 @@
+__pycache__/
+/data/meta.pkl
+/data/train.bin
+/data/val.bin
+/data/input.txt
+/out

@@ -1,6 +1,6 @@
 """
 Inference / prompting script (Tiny Shakespeare, char-level).
-Students will integrate sustainability tracking themselves (e.g., CodeCarbon).
+Students will integrate sustainability tracking themselves.
 """
 
 import os
@@ -10,7 +10,7 @@ import torch
 from model import GPT, GPTConfig
 
 # ----------------------------
-# Students can edit these
+# Edit these
 # ----------------------------
 OUT_DIR = "out"
 CKPT_PATH = os.path.join(OUT_DIR, "ckpt.pt")

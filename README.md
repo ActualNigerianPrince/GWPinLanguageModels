@@ -16,7 +16,7 @@ The goal of the case study is **not to optimize model performance**, but to unde
 │   └── prepare.py        # Dataset preparation (Tiny Shakespeare, character-level)
 │
 ├── src/
-│   ├── model.py          # Model architecture (GPT-style Transformer)
+│   ├── model.py          # Model architecture
 │   ├── train.py          # Training script
 │   └── prompt.py         # Inference/ prompting script
 │
@@ -96,6 +96,11 @@ In all cases, you should:
 
 This script trains the Small Language Model from scratch.
 
+Run this script using:
+```bash
+python src/prompt.py
+```
+
 ### Tunable parameters
 
 At the top of `train.py`, you will find a configuration section where you can adjust parameters such as:
@@ -135,6 +140,11 @@ You must integrate **CodeCarbon** in this file to measure:
 ---
 
 ## 4. Inference / Prompting (`src/prompt.py`)
+
+Run this script using:
+```bash
+python src/prompt.py
+```
 
 This script performs **inference** using a trained model checkpoint.
 
