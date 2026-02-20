@@ -18,6 +18,8 @@ import torch
 
 from model import GPTConfig, GPT
 
+from codecarbon import EmissionsTracker
+
 # -----------------------------------------------------------------------------
 # Experiment configuration
 
@@ -42,7 +44,7 @@ DEVICE = "cpu"          # If you can, try also seeing consumption when using gpu
 DTYPE = "float32"       
 BATCH_SIZE = 32         # Number of sequences processed in parallel.
 BLOCK_SIZE = 256        # Maximum context length for predictions (e.g. 128 or 256). The longer the block size, the more memory and compute it requires, but it can also lead to better performance.
-MAX_ITERS = 2000        # Total number of training iterations. The more iterations, the better the model can perform, but it also takes more time and energy to train.
+MAX_ITERS = 1000        # 2000 Total number of training iterations. The more iterations, the better the model can perform, but it also takes more time and energy to train.
 LEARNING_RATE = 3e-4    # the standard starting learning rate, often good enough for a first try
 WEIGHT_DECAY = 0.1      # L2 Regularization
 GRAD_CLIP = 1.0         # To prevent exploding gradients
@@ -191,4 +193,8 @@ def main():
         save_checkpoint(OUT_DIR, model, optimizer, MAX_ITERS, config_dump)
 
 if __name__ == "__main__":
+    tracker = EmissionsTracker()
+    tracker.start()
     main()
+    emissions: float = tracker.stop()
+    print(f"Emissions: {emissions} kg")

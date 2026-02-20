@@ -10,6 +10,7 @@ import pickle
 import torch
 
 from model import GPT, GPTConfig
+from codecarbon import EmissionsTracker
 
 # ----------------------------
 # Edit these
@@ -68,4 +69,8 @@ def main():
 
 
 if __name__ == "__main__":
+    tracker = EmissionsTracker()
+    tracker.start()
     main()
+    emissions: float = tracker.stop()
+    print(f"Emissions: {emissions} kg")
